@@ -7,6 +7,7 @@ class Category(models.Model):
     def search(cls,search_term):
         categories=cls.objects.filter(name__icontains=search_term)
         return categories
+    
 class Image(models.Model):
     name=models.CharField(max_length=30)
     image_description=models.TextField()

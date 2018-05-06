@@ -13,13 +13,13 @@
 
 <body>
   {% include "navbar.html" %}
+  {%include "form.html" %}
+  <br>
   {% block content %}
 
   {% endblock %}
-{%include "form.html" %}
-{% block content %}
-<h2>hello</h2>
-{% endblock %}
+
+
 
 
   {% block scripts %}

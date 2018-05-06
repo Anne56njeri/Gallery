@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Image
+from .models import Image,Category
 from django.http import Http404
 
 # Create your views here.
