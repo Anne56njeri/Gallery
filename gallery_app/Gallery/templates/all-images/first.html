@@ -13,7 +13,7 @@
 
 
     <img src="{{image.image_path.url}}"class="img-thumbnail" alt="Image">
-    
+  <button type="button" class="btn btn-info" > <a href="{%url 'description' image.id%}">View Image</a></button>
   </div>
   {% empty %}
   <div class="row">
