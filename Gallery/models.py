@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     name=models.CharField(max_length = 60)
+    def save_category(self):
+        self.save()
 
 class Location(models.Model):
     location_name=models.CharField(max_length=30)
