@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import dj_database_url
+from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -19,15 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v&mau4&$3ky&d3rh^xy*d6h&f1y4d#_lkbij_8&w_&$7i%g_=y'
 
+db_from_env=dj_database_url.config(conn_max_age=500)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG',default=False,cast=bool)
 
 ALLOWED_HOSTS = []
-
-
+STATIC_URL='/static'
+STATICFILES_DIRS=[
+os.path.join(BASE_DIR,"static"),
+]
+STATIC_ROOT=os.path.join(BASE_DIR,"staticfiles")
+STATICFILES_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'gallery_app.urls'
+ROOT_URLCONF = 'gallery.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gallery_app.wsgi.application'
+WSGI_APPLICATION = 'gallery.wsgi.application'
 
 
 # Database
@@ -125,3 +129,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+DATABASES['default'].update(db_from_env)
+SECRET_KEY = config('SECRET_KEY')
