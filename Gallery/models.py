@@ -5,7 +5,7 @@ class Category(models.Model):
     name=models.CharField(max_length = 60)
     def save_category(self):
         self.save()
-    def delete(self):
+    def delete_category(self):
         self.delete()
 
 class Location(models.Model):
