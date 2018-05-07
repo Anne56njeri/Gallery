@@ -34,3 +34,5 @@ class Image(models.Model):
         europe_images=cls.objects.filter(location__location_name='Europe')
     def save_image(self):
         self.save()
+    def delete_image(self):
+        self.remove()
