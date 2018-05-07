@@ -14,7 +14,9 @@
 
     <img src="{{image.image_path.url}}"class="img-thumbnail" alt="Image">
   <button type="button" class="btn btn-info" > <a href="{%url 'description' image.id%}">View Image</a></button>
-  </div>
+  <button class="btn" data-clipboard-text="{{image.image_path.url}}">
+      Copy to clipboard
+  </button>  </div>
   {% empty %}
   <div class="row">
     <h2 class="text-center">There are no new items</h2>
