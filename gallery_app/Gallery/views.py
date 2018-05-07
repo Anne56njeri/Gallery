@@ -15,5 +15,5 @@ def image(request,image_id):
     return render(request,"all-images/image.html",{"images":images})
 def search_category(request):
     search_term=request.GET.get("category")
-    searched_categories=Category.search(search_term)
+    searched_categories=Image.search(search_term)
     return render (request,'all-images/search.html',{"searched_categories":searched_categories})
