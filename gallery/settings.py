@@ -25,7 +25,7 @@ db_from_env=dj_database_url.config(conn_max_age=500)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG',default=False,cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS=['*']
 STATIC_URL='/static'
 STATICFILES_DIRS=[
 os.path.join(BASE_DIR,"static"),
