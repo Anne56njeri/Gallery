@@ -1,31 +1,56 @@
 {%extends 'all-images/base.html'%}
+{% load bootstrap3 %}
+{% load static %}
+
+
+{% block styles %}
+{{ block.super }}
+{% bootstrap_css %}
+
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+{% endblock %}
 
 {% block content %}
-{{block.super}}
+
+
+
 
 <div class="container">
+
+
+  <div class="row">
+
 
 {%for image in my_images %}
 
-<div class="container">
-
-  <div class="col-xs-6 col-sm-6 col-lg-6">
 
 
-    <img src="{{image.image_path.url}}"class="img-thumbnail" alt="Image">
-  <button type="button" class="btn btn-info" > <a href="{%url 'description' image.id%}">View Image</a></button>
-  <button class="btn" data-clipboard-text="{{image.image_path.url}}">
-      Copy to clipboard
-  </button>  </div>
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+   <div class="view view-first">
+
+    <img src="{{image.image_path.url}}"class="img-responsive" class="image" alt="Image" style="">
+  <div class="mask">
+  <button type="button" class="btn btn-info" > <a href="{%url 'description' image.id%}" class="info">View Image</a></button>
+  <button class="btn" data-clipboard-text="http://127.0.0.1:8000{{image.image_path.url}}">Copy to clipboard</button> 
+</div>
+ </div>
+</div>
+
+
+
   {% empty %}
   <div class="row">
     <h2 class="text-center">There are no new items</h2>
 
 </div>
 </div>
-
+</div>
 
 {% endfor %}
 
-</div>
+
+
+
+
 {% endblock %}

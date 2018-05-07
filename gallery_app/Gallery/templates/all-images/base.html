@@ -28,7 +28,16 @@
      {% bootstrap_javascript %}
      <script src="{% static 'copy.js/clipboard.min.js'%}"></script>
      <script>
-     new ClipboardJS('.btn');
+     var clipboard = new ClipboardJS('.btn');
+
+clipboard.on('success', function(e) {
+    alert('copied')
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+});
      </script>
     {% endblock %}
 
