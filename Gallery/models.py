@@ -32,3 +32,5 @@ class Image(models.Model):
     @classmethod
     def Europe(cls):
         europe_images=cls.objects.filter(location__location_name='Europe')
+    def save_image(self):
+        self.save()
