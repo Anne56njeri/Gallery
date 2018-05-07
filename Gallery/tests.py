@@ -22,3 +22,7 @@ class LocationTestClass(TestCase):
         self.first=Location(location_name='London')
     def test_instance_2(self):
         self.assertTrue(isinstance(self.first,Location))
+    def test_save_location(self):
+        self.first.save_location()
+        loc=Location.objects.all()
+        self.assertTrue(len(loc)>0)
