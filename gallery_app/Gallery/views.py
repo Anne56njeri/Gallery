@@ -20,3 +20,12 @@ def search_category(request):
 def london(request):
     location=Image.London()
     return render (request,'all-images/location.html',{"location":location})
+def china(request):
+    location=Image.China()
+    return render (request,'all-images/location1.html',{"location":location})
+def malawi(request):
+    location=Image.Malawi()
+    return render (request,'all-images/location2.html',{"location":location})
+def europe(request):
+    location=Image.Europe()
+    return render (request,'all-images/location3.html',{"location":location})
