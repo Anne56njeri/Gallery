@@ -18,7 +18,7 @@ Maryanne Njeri
 - open http://127.0.0.1:8000/ on your browser to view on the localhost
 - click the link below to view the deployed app  
 - https://gallam.herokuapp.com./
-- To watch a live demo of the video click the link below
+- To watch a live demo of the app click the link below
 https://www.youtube.com/watch?v=xVjL2kEVCec&feature=youtu.be
 
 
